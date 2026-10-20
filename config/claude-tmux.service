@@ -1,0 +1,16 @@
+# ~/.config/systemd/user/claude-tmux.service on the HOST NODE
+# Starts a "claude" tmux session at boot and resumes the last conversation.
+# Enable: systemctl --user daemon-reload && systemctl --user enable claude-tmux
+#         sudo loginctl enable-linger <host_user>
+[Unit]
+Description=Claude Code in tmux
+After=network-online.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/tmux new-session -d -s claude -c <project_root> 'bash -lc "claude --continue || claude; exec bash"'
+ExecStop=/usr/bin/tmux kill-session -t claude
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,33 @@
+# ~/.ssh/config on the HOST NODE (where agents run)
+# Key: ~/.ssh/id_ed25519_login (public half in the login node's authorized_keys)
+
+# For you: interactive login
+Host <login_alias>
+    HostName <login_domain>
+    User <ucl_user_id>
+    IdentityFile ~/.ssh/id_ed25519_login
+    IdentitiesOnly yes
+    RequestTTY yes
+    RemoteCommand cd <project_root> && exec $SHELL
+
+# For agents: accepts commands (ssh <login_alias>-agent "cmd"), reuses one connection
+Host <login_alias>-agent
+    HostName <login_domain>
+    User <ucl_user_id>
+    IdentityFile ~/.ssh/id_ed25519_login
+    IdentitiesOnly yes
+    ControlMaster auto
+    ControlPath ~/.ssh/cm-%r@%h:%p
+    ControlPersist 8h
+
+# GPU pool, reached through the login node.
+# UCL CS: node names get "-l" appended, e.g. canada -> canada-l.cs.ucl.ac.uk
+Host <gpu_nodes>                         # e.g. canada mallard pintail smew
+    HostName %h-l.cs.ucl.ac.uk
+    User <ucl_user_id>
+    ProxyJump <login_alias>-agent
+    IdentityFile ~/.ssh/id_ed25519_login
+    IdentitiesOnly yes
+    ControlMaster auto
+    ControlPath ~/.ssh/cm-%r@%h:%p
+    ControlPersist 8h

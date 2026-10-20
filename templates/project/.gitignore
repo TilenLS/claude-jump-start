@@ -1,0 +1,9 @@
+logs/
+results/**/*.pt
+results/**/*.ckpt
+results/**/*.npy
+data/
+.venv/
+__pycache__/
+.claude/settings.local.json
+CLAUDE.local.md

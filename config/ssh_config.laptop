@@ -1,0 +1,9 @@
+# ~/.ssh/config on your LAPTOP
+# Replace <placeholders> (see docs/01-architecture.md).
+
+# Login node: interactive shell that opens in your project root
+Host <login_alias>                       # e.g. tails
+    HostName <login_domain>              # e.g. tails.cs.ucl.ac.uk
+    User <ucl_user_id>                   # e.g. tlimback
+    RequestTTY yes
+    RemoteCommand cd <project_root> && exec $SHELL

@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(scripts/free_nodes.sh:*)",
+      "Bash(scripts/run_gpu.sh:*)",
+      "Bash(scripts/submit.sh:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
