@@ -14,14 +14,14 @@
 
 | Placeholder | Meaning | Example |
 |-------------|---------|---------|
-| `<ucl_user_id>` | Cluster username | `tlimback` |
+| `<ucl_user_id>` | Cluster username | `alicebob` |
 | `<login_domain>` | Login node hostname | `tails.cs.ucl.ac.uk` |
 | `<login_alias>` | Short SSH name for it | `tails` |
 | `<host_alias>` | Short SSH name for the host node | `msi` |
 | `<host_ip>` | Host node address (`hostname -I`, wired) | `128.16.14.66` |
-| `<host_user>` | Local account on the host node | `tilen` |
-| `<project_root>` | Shared code + data directory | `/cs/research/pplv/comp_bridge` |
-| `<project>` | One project under it | `qclip` |
+| `<host_user>` | Local account on the host node | `alice` |
+| `<project_root>` | Shared code + data directory | `/cs/research/group_name/project_name` |
+| `<project>` | One project under it | `project_name` |
 | `<gpu_nodes>` | GPU pool node names | `canada mallard pintail` |
 
 ## 1. Laptop
