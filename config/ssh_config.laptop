@@ -1,5 +1,5 @@
 # ~/.ssh/config on your LAPTOP
-# Replace <placeholders> (see docs/01-architecture.md).
+# Replace <placeholders> (see docs/setup.md).
 
 # Login node: interactive shell that opens in your project root
 Host <login_alias>                       # e.g. tails
